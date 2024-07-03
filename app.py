@@ -32,7 +32,7 @@ if st.button('Predict'):
 
     try:
         input_data_scaled = scaler.transform(input_data)
-        prediction = model.predict(input_data_scaled)
+        prediction = clf.predict(input_data_scaled)
         # Lakukan prediksi
         prediction = clf.predict(input_data)
         # Debug: Tampilkan prediksi mentah
