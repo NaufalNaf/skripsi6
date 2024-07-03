@@ -15,7 +15,6 @@ st.title('Obesity Level Classification')
 # Input pengguna
 height = st.number_input('Height (in meters)', min_value=0.5, max_value=2.5, value=1.75)
 weight = st.number_input('Weight (in kg)', min_value=20, max_value=200, value=70)
-age = st.number_input('Age (in years)', min_value=1, max_value=120, value=25)
 gender = st.selectbox('Gender', ('Female', 'Male'))
 
 # Konversi gender ke bentuk numerik
@@ -25,7 +24,7 @@ if st.button('Predict'):
     st.write("Button clicked.")
 
     # Buat array input
-    input_data = np.array([[height, weight, age, gender_num]])
+    input_data = np.array([[height, weight, gender_num]])
 
     # Debug: Tampilkan data input
     st.write(f'Input data: {input_data}')
