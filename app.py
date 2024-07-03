@@ -6,6 +6,7 @@ import numpy as np
 st.write("Loading model...")
 try:
     clf = joblib.load('klasifikasi_obesitas.pkl')
+    scaler = joblib.load('scaler.sav')
     st.write("Model loaded.")
 except Exception as e:
     st.write(f"Error loading model: {e}")
@@ -30,6 +31,8 @@ if st.button('Predict'):
     st.write(f'Input data: {input_data}')
 
     try:
+        input_data_scaled = scaler.transform(input_data)
+        prediction = model.predict(input_data_scaled)
         # Lakukan prediksi
         prediction = clf.predict(input_data)
         # Debug: Tampilkan prediksi mentah
